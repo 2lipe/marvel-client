@@ -2,10 +2,9 @@
   "trailingComma": "all",
   "semi": true,
   "singleQuote": true,
-  "printWidth": 120,
+  "printWidth": 90,
   "bracketSpacing": true,
   "jsxBracketSameLine": true,
   "endOfLine": "auto",
-  "tabWidth": 2,
-  "arrowParens": "avoid"
+  "tabWidth": 2
 }
