@@ -30,7 +30,7 @@ export const Wrapper = styled.div<WrapperProps>`
 
     background: ${theme.colors.gray3};
     border: 0.2rem solid ${theme.colors.gray3};
-    border-radius: ${theme.border.radius10};
+    border-radius: ${theme.border.radius};
     padding: ${theme.spacings.xsmall};
     color: ${theme.colors.white};
 
