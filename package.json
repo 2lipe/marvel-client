@@ -9,7 +9,8 @@
     "lint": "eslint src --max-warnings=0",
     "generate": "yarn plop --plopfile generators/plopfile.js",
     "storybook": "start-storybook -s ./public -p 6006",
-    "build-storybook": "build-storybook -s ./public"
+    "build-storybook": "build-storybook -s ./public",
+    "postinstall": "husky install"
   },
   "dependencies": {
     "react": "^17.0.1",
@@ -73,8 +74,7 @@
   },
   "lint-staged": {
     "src/**/*": [
-      "yarn lint --fix",
-      "yarn test --findRelatedTests --bail"
+      "yarn lint --fix"
     ]
   },
   "browserslist": {

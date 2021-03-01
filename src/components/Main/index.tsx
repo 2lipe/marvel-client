@@ -7,5 +7,3 @@ export const Main = () => (
     <h1>Main</h1>
   </S.Wrapper>
 );
-
-const k = 2;
