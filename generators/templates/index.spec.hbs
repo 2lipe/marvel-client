@@ -1,0 +1,13 @@
+import React from 'react';
+
+import { render, screen } from '@testing-library/react';
+
+import { {{pascalCase name}} } from '.';
+
+describe('<{{pascalCase name}} />', () => {
+  it('should be render the heading', () => {
+    render(<{{pascalCase name}} />);
+
+    expect(screen.getByRole('heading', { name: /{{pascalCase name}}/i})).toBeInTheDocument();
+  });
+});

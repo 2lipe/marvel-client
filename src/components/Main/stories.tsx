@@ -1,11 +1,11 @@
 import React from 'react';
 
 import { Story, Meta } from '@storybook/react/types-6-0';
-import { Header } from '.';
+import { Main } from '.';
 
 export default {
-  title: 'Header',
-  component: Header,
+  title: 'Main',
+  component: Main,
 } as Meta;
 
-export const Default: Story = () => <Header />;
+export const Default: Story = () => <Main />;

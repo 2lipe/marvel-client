@@ -2,8 +2,10 @@ import React from 'react';
 
 import * as S from './styles';
 
-export const Header = () => (
+export const Main = () => (
   <S.Wrapper>
-    <h1>Header</h1>
+    <h1>Main</h1>
   </S.Wrapper>
 );
+
+const k = 2;

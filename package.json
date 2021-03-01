@@ -44,6 +44,9 @@
     "eslint-plugin-react": "^7.22.0",
     "eslint-plugin-react-hooks": "^4.2.0",
     "git-commit-msg-linter": "^3.0.0",
+    "husky": "5",
+    "jest-styled-components": "^7.0.3",
+    "lint-staged": "^10.5.4",
     "plop": "^2.7.4",
     "prettier": "^2.2.1"
   },
@@ -51,6 +54,27 @@
     "extends": [
       "react-app",
       "react-app/jest"
+    ]
+  },
+  "jest": {
+    "clearMocks": true,
+    "watchPathIgnorePatterns": [
+      "/node_modules/"
+    ],
+    "collectCoverageFrom": [
+      "src/**/*.ts(x)?",
+      "!src/**/stories.tsx"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "src/**/*": [
+      "yarn lint --fix",
+      "yarn test --findRelatedTests --bail"
     ]
   },
   "browserslist": {
