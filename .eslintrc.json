@@ -4,13 +4,7 @@
     "es2021": true,
     "jest": true
   },
-  "extends": [
-    "plugin:react/recommended",
-    "airbnb",
-    "plugin:@typescript-eslint/recommended",
-    "prettier/@typescript-eslint",
-    "plugin:prettier/recommended"
-  ],
+  "extends": ["plugin:react/recommended", "airbnb", "plugin:@typescript-eslint/recommended"],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "ecmaFeatures": {
@@ -19,9 +13,8 @@
     "ecmaVersion": 12,
     "sourceType": "module"
   },
-  "plugins": ["react", "@typescript-eslint", "react-hooks", "prettier"],
+  "plugins": ["react", "@typescript-eslint", "react-hooks"],
   "rules": {
-    "prettier/prettier": "warn",
     "react/jsx-props-no-spreading": "off",
     "react/prop-types": "off",
     "react/jsx-closing-bracket-location": "off",
@@ -36,7 +29,7 @@
     "react/jsx-one-expression-per-line": "off",
     "@typescript-eslint/ban-types": "off",
     "@typescript-eslint/explicit-module-boundary-types": "off",
-    "import/no-extraneous-dependencies": ["error", { "devDependencies": ["**/*.test.js", "**/*.spec.js", "axios"] }],
+    "import/no-extraneous-dependencies": "off",
     "import/extensions": [
       "error",
       "ignorePackages",
