@@ -8,6 +8,7 @@ import React, {
 } from 'react';
 import { IconBaseProps } from 'react-icons';
 import { useField } from '@unform/core';
+import { FiAlertCircle } from 'react-icons/fi';
 
 import * as S from './styles';
 
@@ -56,6 +57,12 @@ export const Input = ({ name, icon: Icon, ...rest }: InputProps) => {
         ref={inputRef}
         {...rest}
       />
+
+      {error && (
+        <S.ErrorWrapper variant="error" title={error}>
+          <FiAlertCircle color="#c53030" size={20} />
+        </S.ErrorWrapper>
+      )}
     </S.Wrapper>
   );
 };

@@ -44,7 +44,8 @@ export default {
     gray3: '#666360',
     gray4: '#3E3B47',
     gray5: '#2E2F42',
-    gray6: '#232129',
+    gray6: '#312E38',
+    gray7: '#232129',
 
     orange: '#ff9000',
 

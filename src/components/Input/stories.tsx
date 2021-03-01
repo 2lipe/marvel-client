@@ -6,7 +6,7 @@ import { Story, Meta } from '@storybook/react/types-6-0';
 import { FormHandles } from '@unform/core';
 import { Form } from '@unform/web';
 
-import { Input } from '.';
+import { Input, InputProps } from '.';
 
 export default {
   title: 'Input',
@@ -16,12 +16,9 @@ export default {
       type: '',
     },
   },
-  args: {
-    name: 'email',
-  },
 } as Meta;
 
-export const Default: Story = () => {
+export const Default: Story<InputProps> = (args) => {
   const formRef = useRef<FormHandles>(null);
 
   const handleSubmit = async () => {
@@ -36,7 +33,14 @@ export const Default: Story = () => {
 
   return (
     <Form ref={formRef} onSubmit={handleSubmit}>
-      <Input name="email" type="text" icon={FiMail} placeholder="E-mail" />
+      <Input {...args} />
     </Form>
   );
+};
+
+Default.args = {
+  name: 'email',
+  type: 'text',
+  placeholder: 'E-mail',
+  icon: FiMail,
 };

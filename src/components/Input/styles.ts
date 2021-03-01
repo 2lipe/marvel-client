@@ -1,4 +1,5 @@
 import styled, { css, DefaultTheme } from 'styled-components';
+import { Tooltip } from '../Tooltip';
 
 type WrapperProps = {
   isFocused: boolean;
@@ -63,4 +64,13 @@ export const Wrapper = styled.div<WrapperProps>`
     ${!!isFilled && WrapperModifiers.withFill(theme)}
     ${!!isErrored && WrapperModifiers.withError(theme)}
   `}
+`;
+
+export const ErrorWrapper = styled(Tooltip)`
+  height: 2rem;
+  margin-left: 2rem;
+
+  > svg {
+    margin: 0;
+  }
 `;
