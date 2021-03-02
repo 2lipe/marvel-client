@@ -29,7 +29,7 @@ export default {
 
   colors: {
     primary: '#c53030',
-    secondary: '#3CD3C1',
+    secondary: '#030517',
 
     mainBg: '#06092B',
     lightBg: '#F2F2F2',

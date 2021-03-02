@@ -6,8 +6,8 @@ import * as S from './styles';
 export type HighlightProps = {
   title: string;
   subtitle: string;
-  buttonLabel: string;
-  buttonLink: string;
+  buttonLabel?: string;
+  buttonLink?: string;
   backgroundImage: string;
   alignment?: 'right' | 'left';
 };
@@ -24,7 +24,8 @@ export const Highlight = ({
     <S.Content>
       <S.Title>{title}</S.Title>
       <S.Subtitle>{subtitle}</S.Subtitle>
-      <Button href={buttonLink}>{buttonLabel}</Button>
+
+      {buttonLink && <Button href={buttonLink}>{buttonLabel}</Button>}
     </S.Content>
   </S.Wrapper>
 );

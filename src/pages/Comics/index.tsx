@@ -1,9 +1,12 @@
 import React from 'react';
+import Showcase from '../../components/Showcase';
+
+import highlightItems from './highlight';
 
 import * as S from './styles';
 
 export const Comics = () => (
   <S.Wrapper>
-    <h1>Comics</h1>
+    <Showcase title="Marvel Comics" highlight={highlightItems} />
   </S.Wrapper>
 );

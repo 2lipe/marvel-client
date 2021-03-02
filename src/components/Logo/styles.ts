@@ -19,6 +19,8 @@ export const Wrapper = styled.div<LogoProps>`
   ${({ theme, color, size }) => css`
     color: ${theme.colors[color!]};
 
+    cursor: pointer;
+
     ${!!size && WrapperModifiers[size]}
   `}
 `;
