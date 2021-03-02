@@ -1,7 +1,7 @@
 import React from 'react';
 import BannerSlider from '../../components/BannerSlider';
 
-import items from './mock';
+import items from './items';
 
 import * as S from './styles';
 
