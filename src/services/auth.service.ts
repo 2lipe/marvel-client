@@ -1,7 +1,7 @@
 import { axiosPostApi } from '../shared/helpers/axios-helper';
 import { SignInRequestDto } from '../models/dtos/session/SignInRequestDto';
 import { SignInResponseDto } from '../models/dtos/session/SignInResponseDto';
-import { IDataResult } from '../models/IDataResult';
+import { IDataResult } from '../models/dtos/user/IUserResult';
 
 export const useAuthService = () => {
   const createSession = async (data: SignInRequestDto) => {

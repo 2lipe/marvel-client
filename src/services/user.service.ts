@@ -1,6 +1,6 @@
 import { SignUpRequestDto } from '../models/dtos/user/SignUpRequestDto';
 import { SignUpResponseDto } from '../models/dtos/user/SingUpResponseDto';
-import { IDataResult } from '../models/IDataResult';
+import { IDataResult } from '../models/dtos/user/IUserResult';
 import { axiosPostApi } from '../shared/helpers/axios-helper';
 
 export const useUserService = () => {

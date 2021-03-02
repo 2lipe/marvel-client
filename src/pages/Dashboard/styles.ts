@@ -20,6 +20,7 @@ export const Container = styled.div`
 export const SectionBanner = styled.section`
   ${({ theme }) => css`
     margin: 0 calc(-${theme.grid.gutter} / 2) ${theme.spacings.large};
+    margin-top: ${theme.spacings.xxlarge};
 
     ${media.greaterThan('medium')`
       margin-bottom: ${theme.spacings.large};
