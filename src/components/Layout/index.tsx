@@ -6,10 +6,10 @@ import { FaUserCircle } from 'react-icons/fa';
 
 import { useAuthenticationContext } from '../../context/Auth/reducers/authContext';
 import { AuthAsyncActions } from '../../context/Auth/actions/authAsyncAction';
-import { HeaderLogo } from '../HeaderLogo';
 import { Modal } from '../Modal';
 
 import * as S from './styles';
+import { Logo } from '../Logo';
 
 export type LayoutProps = {
   headerActive: boolean;
@@ -37,7 +37,7 @@ export const Layout = ({ children, headerActive }: LayoutProps) => {
       {headerActive && (
         <S.Header>
           <div>
-            <HeaderLogo />
+            <Logo />
             <S.ProfileContainer>
               <strong>Bem-vindo</strong>
               <S.Title>{name}</S.Title>
@@ -46,11 +46,11 @@ export const Layout = ({ children, headerActive }: LayoutProps) => {
 
           <div>
             <IconButton onClick={handleModalAction}>
-              <FiPower size={24} fontSize="bold" />
+              <FaUserCircle size={24} fontSize="bold" />
             </IconButton>
 
             <IconButton onClick={handleModalAction}>
-              <FaUserCircle size={24} fontSize="bold" />
+              <FiPower size={24} fontSize="bold" />
             </IconButton>
           </div>
         </S.Header>
