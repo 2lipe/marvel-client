@@ -4,14 +4,10 @@ import GlobalStyles from '../src/styles/global';
 import theme from '../src/styles/theme/light';
 
 export const decorators = [
-  Story => (
+  (Story) => (
     <ThemeProvider theme={theme}>
       <GlobalStyles />
       <Story />
     </ThemeProvider>
   ),
 ];
-
-export const parameters = {
-  actions: { argTypesRegex: '^on[A-Z].*' },
-};

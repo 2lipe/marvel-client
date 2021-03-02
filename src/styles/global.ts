@@ -14,6 +14,7 @@ export default createGlobalStyle`
   html, body, #root {
     width: 100%;
     height: 100%;
+    font-size: 62.5%;
   }
 
   ${({ theme }) => css`
@@ -22,7 +23,7 @@ export default createGlobalStyle`
 
       font-family: ${theme.font.family};
       font-weight: ${theme.font.normal};
-      font-size: ${theme.font.sizes.large};
+      font-size: ${theme.font.sizes.medium};
 
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
