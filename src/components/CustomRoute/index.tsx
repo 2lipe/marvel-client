@@ -3,6 +3,7 @@ import { Redirect, Route, RouteProps } from 'react-router-dom';
 import { useAuthenticationContext } from '../../context/Auth/reducers/authContext';
 import { AUTHENTICATION_PATH } from '../../routes/auth.routes';
 import { USER_PATH } from '../../routes/user.routes';
+import { Layout } from '../Layout';
 
 interface CustomRouteProps extends RouteProps {
   isPrivate?: boolean;
@@ -27,9 +28,9 @@ export const CustomRoute = ({
     if (isPrivate) {
       if (authenticated) {
         return (
-          <>
+          <Layout headerActive={headerActive}>
             <Component />
-          </>
+          </Layout>
         );
       }
 
@@ -41,9 +42,9 @@ export const CustomRoute = ({
     }
 
     return (
-      <>
+      <Layout headerActive={headerActive}>
         <Component />
-      </>
+      </Layout>
     );
   };
 

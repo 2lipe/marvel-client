@@ -25,14 +25,15 @@ const Routes = () => {
           isPrivate={false}
         />
 
-        <CustomRoute exact path={USER_PATH.Dashboard} component={UserRoutes} isPrivate />
-
         <CustomRoute
-          path="*"
-          isPrivate={false}
-          headerActive={false}
-          component={ReturnLogin}
+          exact
+          path={USER_PATH.Dashboard}
+          component={UserRoutes}
+          isPrivate
+          headerActive
         />
+
+        <CustomRoute path="*" isPrivate={false} component={ReturnLogin} />
       </Switch>
     </BrowserRouter>
   );
