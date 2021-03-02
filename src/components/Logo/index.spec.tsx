@@ -3,7 +3,7 @@ import React from 'react';
 
 import { screen } from '@testing-library/react';
 
-import { renderWithTheme } from '../../helpers/test-helper';
+import { renderWithTheme } from '../../shared/helpers/test-helper';
 import { Logo } from '.';
 
 describe('<Logo />', () => {

@@ -3,7 +3,7 @@ import { Form } from '@unform/web';
 import { shade } from 'polished';
 import { Link } from 'react-router-dom';
 
-import { appearFromTop } from '../../utils/keyframes';
+import { appearFromTop } from '../../shared/utils/keyframes';
 
 type WrapperProps = {
   src: string;

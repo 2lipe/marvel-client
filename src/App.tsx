@@ -1,17 +1,16 @@
 import React from 'react';
-import { ThemeProvider } from 'styled-components';
 
+import { AppProvider } from './context';
 import Routes from './routes/routes';
 
 import GlobalStyles from './styles/global';
-import light from './styles/theme/light';
 
 function App() {
   return (
-    <ThemeProvider theme={light}>
+    <AppProvider>
       <GlobalStyles />
       <Routes />
-    </ThemeProvider>
+    </AppProvider>
   );
 }
 
