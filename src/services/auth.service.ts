@@ -1,5 +1,5 @@
 import { api } from '../shared/helpers/api-helper';
-import { SignUpRequestDto } from '../models/dtos/SignUpRequestDto';
+import { SignUpRequestDto } from '../models/dtos/user/SignUpRequestDto';
 
 export const useAuthService = () => {
   const createAccount = async ({ name, email, password }: SignUpRequestDto) => {

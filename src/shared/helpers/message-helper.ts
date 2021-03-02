@@ -1,5 +1,6 @@
 export const PROVIDER_MESSAGES = {
-  noContext: 'useAuth must be used inside a AuthProvider',
+  authContextFail: 'useAutentication must be used inside a AuthenticationProvider',
+  authStateFail: 'useAutentitionoState must be used inside a AutenticacaoProvider',
 };
 
 export const AUTH_MESSAGES = {
@@ -7,4 +8,8 @@ export const AUTH_MESSAGES = {
   createAccountFail: 'Ocorreu um erro ao realizar o cadastro!',
 
   loginFail: 'Ocorreu um erro ao realizar o login',
+};
+
+export const CONTEXT_MESSAGES = {
+  actionNotIdentified: 'Action not identified:',
 };

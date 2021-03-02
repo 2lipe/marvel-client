@@ -9,8 +9,7 @@ import { Images } from '../../shared/utils/images';
 import { Button } from '../../components/Button';
 import { Logo } from '../../components/Logo';
 import { AUTHENTICATION_PATH } from '../../routes/auth.routes';
-import { SignInRequestDto } from '../../models/dtos/SignInRequestDto';
-import { useAuth } from '../../context/authentication/authContext';
+import { SignInRequestDto } from '../../models/dtos/session/SignInRequestDto';
 import { signInSchema } from '../../shared/validations/authSchema';
 import { getValidationErrors } from '../../shared/utils/getValidationErros';
 import { AUTH_MESSAGES } from '../../shared/helpers/message-helper';
@@ -20,11 +19,12 @@ import * as S from './styles';
 export const SignIn = () => {
   const formRef = useRef<FormHandles>(null);
 
-  const { signIn } = useAuth();
   const { enqueueSnackbar } = useSnackbar();
 
   const handleSubmitFormLogin = useCallback(
     async (data: SignInRequestDto) => {
+      console.log(data);
+
       try {
         formRef.current?.setErrors({});
 
@@ -32,11 +32,12 @@ export const SignIn = () => {
           abortEarly: false,
         });
 
-        await signIn({
-          email: data.email,
-          password: data.password,
-        });
+        // await signIn({
+        //   email: data.email,
+        //   password: data.password,
+        // });
       } catch (err) {
+        console.log(err);
         if (err instanceof ValidationError) {
           const errors = getValidationErrors(err);
 
@@ -48,7 +49,7 @@ export const SignIn = () => {
         enqueueSnackbar(AUTH_MESSAGES.loginFail, { variant: 'error' });
       }
     },
-    [enqueueSnackbar, signIn],
+    [enqueueSnackbar],
   );
 
   return (

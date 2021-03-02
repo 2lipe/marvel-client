@@ -12,7 +12,7 @@ import { Logo } from '../../components/Logo';
 import { AUTHENTICATION_PATH } from '../../routes/auth.routes';
 import { getValidationErrors } from '../../shared/utils/getValidationErros';
 import { signUpSchema } from '../../shared/validations/authSchema';
-import { SignUpRequestDto } from '../../models/dtos/SignUpRequestDto';
+import { SignUpRequestDto } from '../../models/dtos/user/SignUpRequestDto';
 import { useAuthService } from '../../services/auth.service';
 import { AUTH_MESSAGES } from '../../shared/helpers/message-helper';
 
@@ -66,7 +66,7 @@ export const SignUp = () => {
 
         <Input name="name" type="text" icon={FiUser} placeholder="Nome" />
 
-        <Input name="email" type="password" icon={FiLock} placeholder="E-mail" />
+        <Input name="email" type="email" icon={FiLock} placeholder="E-mail" />
 
         <Input name="password" type="password" icon={FiLock} placeholder="Senha" />
 
