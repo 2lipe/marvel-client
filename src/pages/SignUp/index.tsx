@@ -1,6 +1,6 @@
 import React, { useCallback, useRef } from 'react';
 import { FormHandles } from '@unform/core';
-import { FiLock, FiLogIn, FiMail } from 'react-icons/fi';
+import { FiArrowLeft, FiLock, FiUser } from 'react-icons/fi';
 
 import { Input } from '../../components/Input';
 import { Images } from '../../utils/images';
@@ -10,7 +10,7 @@ import { AUTHENTICATION_PATH } from '../../routes/auth.routes';
 
 import * as S from './styles';
 
-export const SignIn = () => {
+export const SignUp = () => {
   const formRef = useRef<FormHandles>(null);
 
   const handleSubmitLogin = useCallback(async () => {
@@ -28,20 +28,22 @@ export const SignIn = () => {
           <Logo />
         </S.LogoContainer>
 
-        <S.Title>Sign In</S.Title>
+        <S.Title>Sign Up</S.Title>
 
-        <Input name="email" icon={FiMail} placeholder="E-mail" />
+        <Input name="name" type="text" icon={FiUser} placeholder="Nome" />
+
+        <Input name="email" type="password" icon={FiLock} placeholder="E-mail" />
 
         <Input name="password" type="password" icon={FiLock} placeholder="Senha" />
 
         <S.ButtonContainer>
-          <Button fullWidth>Entrar</Button>
+          <Button fullWidth>Criar conta</Button>
         </S.ButtonContainer>
 
-        <S.CreateAccountLink to={AUTHENTICATION_PATH.SignUp}>
-          <FiLogIn />
-          Criar conta
-        </S.CreateAccountLink>
+        <S.ReturnToLoginLink to={AUTHENTICATION_PATH.SignIn}>
+          <FiArrowLeft />
+          Voltar para logon
+        </S.ReturnToLoginLink>
       </S.LoginForm>
     </S.Wrapper>
   );
