@@ -9,12 +9,12 @@ type WrapperProps = {
 
 const WrapperModifiers = {
   withFocus: (theme: DefaultTheme) => css`
-    color: ${theme.colors.orange};
-    border-color: ${theme.colors.orange};
+    color: ${theme.colors.white};
+    border-color: ${theme.colors.white};
   `,
 
   withFill: (theme: DefaultTheme) => css`
-    color: ${theme.colors.orange};
+    color: ${theme.colors.white};
   `,
 
   withError: (theme: DefaultTheme) => css`

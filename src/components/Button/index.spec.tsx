@@ -10,7 +10,7 @@ describe('<Button />', () => {
     renderWithTheme(<Button>Sign in</Button>);
 
     expect(screen.getByRole('button', { name: /Sign in/i })).toHaveStyle({
-      height: '4rem',
+      height: '5rem',
       padding: '0.8rem 5.6rem',
       'font-size': '1.4rem',
     });
@@ -30,7 +30,7 @@ describe('<Button />', () => {
     renderWithTheme(<Button size="large">Sign in</Button>);
 
     expect(screen.getByRole('button', { name: /Sign in/i })).toHaveStyle({
-      height: '4rem',
+      height: '5rem',
       padding: '1.6rem 10rem',
       'font-size': '1.6rem',
     });
