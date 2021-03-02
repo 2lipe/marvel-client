@@ -2,7 +2,6 @@ import styled, { css } from 'styled-components';
 import { Form } from '@unform/web';
 import { shade } from 'polished';
 import { Link } from 'react-router-dom';
-
 import { appearFromTop } from '../../utils/keyframes';
 
 type WrapperProps = {
@@ -82,7 +81,7 @@ export const Title = styled.h2`
   `}
 `;
 
-export const CreateAccountLink = styled(Link)`
+export const ReturnToLoginLink = styled(Link)`
   ${({ theme }) => css`
     color: ${theme.colors.white};
     margin-top: 2.5rem;
