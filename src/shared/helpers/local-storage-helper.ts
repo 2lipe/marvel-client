@@ -1,4 +1,4 @@
-import { SignInResponseDto } from '../../models/dtos/user/SingInResponseDto';
+import { SignInResponseDto } from '../../models/dtos/session/SignInResponseDto';
 
 export const saveUserLocalStorage = (data: SignInResponseDto) => {
   localStorage.setItem('@stone-marvel:user', JSON.stringify(data));

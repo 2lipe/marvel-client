@@ -2,6 +2,8 @@ import React, { ReactNode } from 'react';
 import { ThemeProvider } from 'styled-components';
 import { SnackbarProvider } from 'notistack';
 
+import { AuthenticationProvider } from './Auth/reducers/authContext';
+
 import theme from '../styles/theme/light';
 
 type AppProviderProps = {
@@ -9,7 +11,7 @@ type AppProviderProps = {
 };
 
 export const AppProvider = ({ children }: AppProviderProps) => (
-  <>
+  <AuthenticationProvider>
     <ThemeProvider theme={theme}>
       <SnackbarProvider
         maxSnack={3}
@@ -18,5 +20,5 @@ export const AppProvider = ({ children }: AppProviderProps) => (
         {children}
       </SnackbarProvider>
     </ThemeProvider>
-  </>
+  </AuthenticationProvider>
 );

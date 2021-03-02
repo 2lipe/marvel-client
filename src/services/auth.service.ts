@@ -1,22 +1,21 @@
-import { api } from '../shared/helpers/api-helper';
-import { SignUpRequestDto } from '../models/dtos/user/SignUpRequestDto';
+import { axiosPostApi } from '../shared/helpers/axios-helper';
+import { SignInRequestDto } from '../models/dtos/session/SignInRequestDto';
+import { SignInResponseDto } from '../models/dtos/session/SignInResponseDto';
+import { IDataResult } from '../models/IDataResult';
 
 export const useAuthService = () => {
-  const createAccount = async ({ name, email, password }: SignUpRequestDto) => {
-    const body = {
-      name,
-      email,
-      password,
-    };
-
+  const createSession = async (data: SignInRequestDto) => {
     try {
-      const response = await api.post('/user/create', body);
+      const response = await axiosPostApi<IDataResult<SignInResponseDto>>(
+        '/user/session',
+        data,
+      );
 
-      return response.data;
+      return response;
     } catch (err) {
       throw new Error(err);
     }
   };
 
-  return { createAccount };
+  return { createSession };
 };

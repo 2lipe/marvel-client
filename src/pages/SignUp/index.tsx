@@ -13,15 +13,15 @@ import { AUTHENTICATION_PATH } from '../../routes/auth.routes';
 import { getValidationErrors } from '../../shared/utils/getValidationErros';
 import { signUpSchema } from '../../shared/validations/authSchema';
 import { SignUpRequestDto } from '../../models/dtos/user/SignUpRequestDto';
-import { useAuthService } from '../../services/auth.service';
 import { AUTH_MESSAGES } from '../../shared/helpers/message-helper';
 
 import * as S from './styles';
+import { useUserService } from '../../services/user.service';
 
 export const SignUp = () => {
   const formRef = useRef<FormHandles>(null);
 
-  const { createAccount } = useAuthService();
+  const { createAccount } = useUserService();
   const { enqueueSnackbar } = useSnackbar();
 
   const history = useHistory();
@@ -57,7 +57,7 @@ export const SignUp = () => {
 
   return (
     <S.Wrapper src={Images.herosLoginImage} role="img" aria-label="Marvel heros">
-      <S.LoginForm ref={formRef} onSubmit={handleSubmitFormCreateAccount}>
+      <S.SignUpForm ref={formRef} onSubmit={handleSubmitFormCreateAccount}>
         <S.LogoContainer>
           <Logo />
         </S.LogoContainer>
@@ -78,7 +78,7 @@ export const SignUp = () => {
           <FiArrowLeft />
           Voltar para logon
         </S.ReturnToLoginLink>
-      </S.LoginForm>
+      </S.SignUpForm>
     </S.Wrapper>
   );
 };

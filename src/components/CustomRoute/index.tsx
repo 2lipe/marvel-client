@@ -1,37 +1,51 @@
-/* eslint-disable implicit-arrow-linebreak */
-/* eslint-disable no-confusing-arrow */
 import React, { ComponentType } from 'react';
-import { RouteProps, Route, Redirect } from 'react-router-dom';
-import { useAuthenticationContext } from '../../context/Auth/authContext';
-
+import { Redirect, Route, RouteProps } from 'react-router-dom';
+import { useAuthenticationContext } from '../../context/Auth/reducers/authContext';
 import { AUTHENTICATION_PATH } from '../../routes/auth.routes';
 import { USER_PATH } from '../../routes/user.routes';
 
 interface CustomRouteProps extends RouteProps {
   isPrivate?: boolean;
   component: ComponentType;
+  headerActive?: boolean;
 }
 
 export const CustomRoute = ({
-  isPrivate = false,
+  isPrivate = true,
+  headerActive = false,
   component: Component,
   ...rest
 }: CustomRouteProps) => {
   const { state } = useAuthenticationContext();
 
-  const isSigned = !!state;
+  console.log(state.user.token);
 
-  const checkAuthAndRedirect = (location: unknown) =>
-    isPrivate === isSigned ? (
-      <Component />
-    ) : (
-      <Redirect
-        to={{
-          pathname: isPrivate ? AUTHENTICATION_PATH.SignIn : USER_PATH.Dashboard,
-          state: { from: location },
-        }}
-      />
+  const authenticated = state.user.token;
+  const openRoute = !isPrivate;
+
+  const privateRoute = () => {
+    if (isPrivate) {
+      if (authenticated) {
+        return (
+          <>
+            <Component />
+          </>
+        );
+      }
+
+      return <Redirect to={AUTHENTICATION_PATH.SignIn} />;
+    }
+
+    if (openRoute && authenticated) {
+      return <Redirect to={USER_PATH.Dashboard} />;
+    }
+
+    return (
+      <>
+        <Component />
+      </>
     );
+  };
 
-  return <Route {...rest} render={({ location }) => checkAuthAndRedirect(location)} />;
+  return <Route {...rest} render={privateRoute} />;
 };

@@ -1,6 +1,6 @@
 export const PROVIDER_MESSAGES = {
   authContextFail: 'useAutentication must be used inside a AuthenticationProvider',
-  authStateFail: 'useAutentitionoState must be used inside a AutenticacaoProvider',
+  authStateFail: 'useAutenticationState must be used inside a AutenticationProvider',
 };
 
 export const AUTH_MESSAGES = {

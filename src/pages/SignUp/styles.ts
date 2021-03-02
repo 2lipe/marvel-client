@@ -29,7 +29,7 @@ export const Wrapper = styled.div<WrapperProps>`
   `}
 `;
 
-export const LoginForm = styled(Form)`
+export const SignUpForm = styled(Form)`
   ${({ theme }) => css`
     display: flex;
     justify-content: center;

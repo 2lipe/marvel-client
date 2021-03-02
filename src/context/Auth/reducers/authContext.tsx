@@ -1,16 +1,14 @@
 /* eslint-disable prefer-const */
 import React, { createContext, useReducer } from 'react';
-
-import { getUserLocalStorage } from '../../shared/helpers/local-storage-helper';
-import { PROVIDER_MESSAGES } from '../../shared/helpers/message-helper';
-
-import { AuthActions } from './authActions';
+import { getUserLocalStorage } from '../../../shared/helpers/local-storage-helper';
+import { PROVIDER_MESSAGES } from '../../../shared/helpers/message-helper';
+import { AuthActions } from '../types/authTypes';
 import { AuthenticationDispatch, authReducer } from './authReducer';
-import { AuthState, AUTH_INITIAL_STATE } from './authState';
+import { AuthState, AUTH_INITIAL_STATE } from './constants';
 
-const AuthenticationStateContext = createContext<AuthState>({} as AuthState);
-const AuthenticationDispatchContext = createContext<AuthenticationDispatch>(
-  {} as AuthenticationDispatch,
+const AuthenticationStateContext = createContext<AuthState | undefined>(undefined);
+const AuthenticationDispatchContext = createContext<AuthenticationDispatch | undefined>(
+  undefined,
 );
 
 type AuthenticationProps = { children: React.ReactNode };

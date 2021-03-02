@@ -1,4 +1,4 @@
-export interface SignInResponseDto {
+export interface SignUpResponseDto {
   id: string;
   name: string;
   email: string;
