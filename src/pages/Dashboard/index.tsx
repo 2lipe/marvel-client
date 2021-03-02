@@ -1,9 +1,16 @@
 import React from 'react';
+import BannerSlider from '../../components/BannerSlider';
+
+import items from './mock';
 
 import * as S from './styles';
 
 export const Dashboard = () => (
   <S.Wrapper>
-    <h1>Dashboard</h1>
+    <S.Container>
+      <S.SectionBanner>
+        <BannerSlider items={items} />
+      </S.SectionBanner>
+    </S.Container>
   </S.Wrapper>
 );

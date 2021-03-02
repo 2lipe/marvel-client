@@ -1,12 +1,11 @@
+import { Fragment } from 'react';
 import styled, { css } from 'styled-components';
 import { Media } from '../../shared/helpers/media-helper';
 
-export const Wrapper = styled.div`
+export const Wrapper = styled(Fragment)`
   display: flex;
   flex-direction: column;
   align-items: center;
-
-  height: 100vh;
 `;
 
 export const Header = styled.div`
