@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components';
 import { Form } from '@unform/web';
 import { shade } from 'polished';
 import { Link } from 'react-router-dom';
-import { appearFromTop } from '../../utils/keyframes';
+import { appearFromTop } from '../../shared/utils/keyframes';
 
 type WrapperProps = {
   src: string;
@@ -29,7 +29,7 @@ export const Wrapper = styled.div<WrapperProps>`
   `}
 `;
 
-export const LoginForm = styled(Form)`
+export const SignUpForm = styled(Form)`
   ${({ theme }) => css`
     display: flex;
     justify-content: center;
