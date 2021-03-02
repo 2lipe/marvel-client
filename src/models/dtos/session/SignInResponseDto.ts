@@ -1,6 +1,6 @@
 export interface SignInResponseDto {
   id: string;
   email: string;
-  name: string;
+  userName: string;
   token: string;
 }
