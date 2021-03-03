@@ -3,6 +3,12 @@ import { shade } from 'polished';
 
 import { Media } from '../../shared/helpers/media-helper';
 
+export const Wrapper = styled.div`
+  ${({ theme }) => css`
+    padding: ${theme.spacings.large};
+  `}
+`;
+
 export const CustomMainContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -12,7 +18,6 @@ export const CustomMainContainer = styled.div`
 `;
 
 export const HeadingContainer = styled.div`
-  margin-top: 4rem;
   margin-right: 3rem;
 `;
 

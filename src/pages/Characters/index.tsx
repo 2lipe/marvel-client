@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import { useSnackbar } from 'notistack';
 import { useHistory } from 'react-router-dom';
 
@@ -13,6 +13,8 @@ import { CHARACTER_MESSAGES } from '../../shared/helpers/message-helper';
 import highlightItem from './highlight';
 
 import * as S from './styles';
+import { USER_PATH } from '../../routes/user.routes';
+import { Heading } from '../../components/Heading';
 
 export const Characters = () => {
   const [resultMarvelApi, setResultMavelApi] = useState<CardProps[]>([]);
@@ -108,8 +110,14 @@ export const Characters = () => {
     }
   };
 
+  const backToHomePage = useCallback(() => {
+    history.push(USER_PATH.Dashboard);
+  }, [history]);
+
   return (
     <S.Wrapper>
+      <Heading navigateToDashboard={backToHomePage}>Voltar</Heading>
+
       <S.InpuContainer>
         <InputSearch
           searchAction={actionSearch}

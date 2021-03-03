@@ -84,6 +84,12 @@ export const FavButton = styled.div`
   `}
 `;
 
+export const IconButonContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
 export const ButtonWrapper = styled.div`
   ${({ theme }) => css`
     display: flex;

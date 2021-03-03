@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import { useSnackbar } from 'notistack';
 
 import { useHistory } from 'react-router';
@@ -15,6 +15,8 @@ import highlightItems from './highlight';
 import * as S from './styles';
 import { CHARACTER_MESSAGES, COMIC_MESSAGES } from '../../shared/helpers/message-helper';
 import { InputSearch } from '../../components/Search';
+import { Heading } from '../../components/Heading';
+import { USER_PATH } from '../../routes/user.routes';
 
 export const Comics = () => {
   const [resultMarvelApi, setResultMavelApi] = useState<CardProps[]>([]);
@@ -111,8 +113,14 @@ export const Comics = () => {
     setResultMavelApi(arrayComicTrated);
   };
 
+  const backToHomePage = useCallback(() => {
+    history.push(USER_PATH.Dashboard);
+  }, [history]);
+
   return (
     <S.Wrapper>
+      <Heading navigateToDashboard={backToHomePage}>Voltar</Heading>
+
       <S.InpuContainer>
         <InputSearch searchAction={actionSearch} placeholder="uma comic" type="comic" />
       </S.InpuContainer>
