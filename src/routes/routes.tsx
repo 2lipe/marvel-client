@@ -6,6 +6,7 @@ import { CustomRoute } from '../components/CustomRoute';
 import { AUTHENTICATION_PATH, SignInRoute, SignUpRoute } from './auth.routes';
 import { CHARACTERS_PATH, CharacterRoutes } from './character.routes';
 import { COMICS_PATH, ComicRoutes } from './comic.routes';
+import { FAVORITES_PATH, FavoritesRoutes } from './favorites.routes';
 import { USER_PATH, UserRoutes, UpdateUserRoutes } from './user.routes';
 
 const Routes = () => {
@@ -57,6 +58,14 @@ const Routes = () => {
           path={USER_PATH.Profile}
           headerActive
           component={UpdateUserRoutes}
+          isPrivate
+        />
+
+        <CustomRoute
+          exact
+          path={FAVORITES_PATH.Main}
+          headerActive
+          component={FavoritesRoutes}
           isPrivate
         />
 

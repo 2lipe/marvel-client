@@ -16,21 +16,17 @@ import * as S from './styles';
 
 export const Characters = () => {
   const [resultMarvelApi, setResultMavelApi] = useState<CardProps[]>([]);
-  const [loading, setLoading] = useState<boolean>(false);
+
   const { enqueueSnackbar } = useSnackbar();
   const { addCharacterFavorite, removeCharacterFavorite } = useUserService();
   const { getCharacter } = useCharactersService();
+
   const history = useHistory();
 
   const actionSearch = async (value: string) => {
     try {
-      setLoading(true);
-
       await getCardProps(value);
-
-      setLoading(false);
     } catch (error) {
-      setLoading(false);
       enqueueSnackbar(CHARACTER_MESSAGES.searchFail, { variant: 'error' });
     }
   };

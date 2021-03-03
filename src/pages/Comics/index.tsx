@@ -114,7 +114,7 @@ export const Comics = () => {
   return (
     <S.Wrapper>
       <S.InpuContainer>
-        <InputSearch searchAction={actionSearch} placeholder="uma comic" type="char" />
+        <InputSearch searchAction={actionSearch} placeholder="uma comic" type="comic" />
       </S.InpuContainer>
 
       <Showcase

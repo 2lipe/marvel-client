@@ -1,5 +1,6 @@
 import { CHARACTERS_PATH } from '../../routes/character.routes';
 import { COMICS_PATH } from '../../routes/comic.routes';
+import { FAVORITES_PATH } from '../../routes/favorites.routes';
 import { Images } from '../../shared/utils/images';
 
 export default [
@@ -8,7 +9,7 @@ export default [
     title: 'Marvel Favoritos',
     subtitle: '<p>Veja aqui a sua lista de <strong>Favoritos Marvel</strong>',
     buttonLabel: 'Favoritos',
-    buttonLink: '/favoritos',
+    buttonLink: FAVORITES_PATH.Main,
   },
   {
     img: Images.marvelComics,
