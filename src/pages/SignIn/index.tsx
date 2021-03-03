@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
-import React, { useCallback, useRef } from 'react';
-import { FormHandles, FormHelpers, SubmitHandler } from '@unform/core';
+import React, { useCallback, useRef, useState } from 'react';
+import { FormHandles, SubmitHandler } from '@unform/core';
 import { useSnackbar } from 'notistack';
 import { FiLock, FiLogIn, FiMail } from 'react-icons/fi';
 
@@ -15,11 +15,13 @@ import { signInSchema } from '../../shared/validations/authSchema';
 import { getValidationErrors } from '../../shared/utils/getValidationErros';
 import { AUTH_MESSAGES } from '../../shared/helpers/message-helper';
 import { AuthAsyncActions } from '../../context/Auth/actions/authAsyncAction';
+import { Loading } from '../../components/Loading';
 
 import * as S from './styles';
 
 export const SignIn = () => {
   const formRef = useRef<FormHandles>(null);
+  const [loading, setLoading] = useState(false);
 
   const { signInRequestAction } = AuthAsyncActions();
   const { enqueueSnackbar } = useSnackbar();
@@ -27,18 +29,24 @@ export const SignIn = () => {
   const signInAction = useCallback(
     async (data: SignInRequestDto) => {
       try {
+        setLoading(true);
+
         const response = await signInRequestAction(data);
 
+        setLoading(false);
         return response;
       } catch (err) {
+        setLoading(false);
+        enqueueSnackbar(AUTH_MESSAGES.invalidCredentials, { variant: 'error' });
+
         return err;
       }
     },
-    [signInRequestAction],
+    [enqueueSnackbar, signInRequestAction],
   );
 
   const handleSubmitFormLogin: SubmitHandler<SignInRequestDto> = useCallback(
-    async (data: SignInRequestDto, { reset }: FormHelpers) => {
+    async (data: SignInRequestDto) => {
       try {
         formRef.current?.setErrors({});
 
@@ -46,18 +54,18 @@ export const SignIn = () => {
           abortEarly: false,
         });
 
-        const response = await signInAction(data);
+        setLoading(true);
 
-        if (response) {
-          reset();
-        }
+        await signInAction(data);
+
+        setLoading(false);
       } catch (err) {
+        setLoading(false);
+
         if (err instanceof ValidationError) {
           const errors = getValidationErrors(err);
 
           formRef.current?.setErrors(errors);
-
-          return;
         }
 
         enqueueSnackbar(AUTH_MESSAGES.loginFail, { variant: 'error' });
@@ -79,9 +87,13 @@ export const SignIn = () => {
 
         <Input name="password" type="password" icon={FiLock} placeholder="Senha" />
 
-        <S.ButtonContainer>
-          <Button fullWidth>Entrar</Button>
-        </S.ButtonContainer>
+        {loading && <Loading />}
+
+        {!loading && (
+          <S.ButtonContainer>
+            <Button fullWidth>Entrar</Button>
+          </S.ButtonContainer>
+        )}
 
         <S.CreateAccountLink to={AUTHENTICATION_PATH.SignUp}>
           <FiLogIn />

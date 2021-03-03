@@ -1,4 +1,4 @@
-import React, { useCallback, useRef } from 'react';
+import React, { useCallback, useRef, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { ValidationError } from 'yup';
 import { useSnackbar } from 'notistack';
@@ -14,12 +14,14 @@ import { getValidationErrors } from '../../shared/utils/getValidationErros';
 import { signUpSchema } from '../../shared/validations/authSchema';
 import { SignUpRequestDto } from '../../models/dtos/user/SignUpRequestDto';
 import { AUTH_MESSAGES } from '../../shared/helpers/message-helper';
+import { Loading } from '../../components/Loading';
+import { useUserService } from '../../services/user.service';
 
 import * as S from './styles';
-import { useUserService } from '../../services/user.service';
 
 export const SignUp = () => {
   const formRef = useRef<FormHandles>(null);
+  const [loading, setLoading] = useState(false);
 
   const { createAccount } = useUserService();
   const { enqueueSnackbar } = useSnackbar();
@@ -35,12 +37,18 @@ export const SignUp = () => {
           abortEarly: false,
         });
 
+        setLoading(true);
+
         await createAccount(data);
+
+        setLoading(false);
 
         history.push(AUTHENTICATION_PATH.SignIn);
 
         enqueueSnackbar(AUTH_MESSAGES.createAccountSuccess, { variant: 'success' });
       } catch (err) {
+        setLoading(false);
+
         if (err instanceof ValidationError) {
           const errors = getValidationErrors(err);
 
@@ -70,9 +78,13 @@ export const SignUp = () => {
 
         <Input name="password" type="password" icon={FiLock} placeholder="Senha" />
 
-        <S.ButtonContainer>
-          <Button fullWidth>Criar conta</Button>
-        </S.ButtonContainer>
+        {loading && <Loading />}
+
+        {!loading && (
+          <S.ButtonContainer>
+            <Button fullWidth>Criar conta</Button>
+          </S.ButtonContainer>
+        )}
 
         <S.ReturnToLoginLink to={AUTHENTICATION_PATH.SignIn}>
           <FiArrowLeft />

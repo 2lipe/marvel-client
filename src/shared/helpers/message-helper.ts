@@ -7,6 +7,7 @@ export const AUTH_MESSAGES = {
   createAccountSuccess: 'Cadastro realizado!',
   createAccountFail: 'Ocorreu um erro ao realizar o cadastro!',
 
+  invalidCredentials: 'Credenciais inválidas.',
   loginFail: 'Ocorreu um erro ao realizar o login',
 
   updateSuccess: 'Cadastro atualizado com sucesso',
