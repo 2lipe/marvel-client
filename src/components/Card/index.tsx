@@ -11,7 +11,7 @@ import * as S from './styles';
 export type CardProps = {
   id: string;
   title: string;
-  type: typeCard;
+  type?: typeCard;
   description?: string | null;
   imgUrl: string;
   isFavorite: boolean;

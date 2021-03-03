@@ -14,6 +14,7 @@ import highlightItems from './highlight';
 
 import * as S from './styles';
 import { CHARACTER_MESSAGES, COMIC_MESSAGES } from '../../shared/helpers/message-helper';
+import { InputSearch } from '../../components/Search';
 
 export const Comics = () => {
   const [resultMarvelApi, setResultMavelApi] = useState<CardProps[]>([]);
@@ -121,7 +122,13 @@ export const Comics = () => {
 
   return (
     <S.Wrapper>
-      <Showcase title="Marvel Comics" highlight={highlightItems} />
+      <InputSearch searchAction={actionSearch} placeholder="Uma comic" type="char" />
+
+      <Showcase
+        title="Marvel Comics"
+        highlight={highlightItems}
+        items={resultMarvelApi}
+      />
     </S.Wrapper>
   );
 };
