@@ -86,48 +86,55 @@ export const UpdateUser = () => {
   );
 
   return (
-    <S.CustomMainContainer>
-      <Heading navigateToDashboard={backToHomePage}>Meu perfil</Heading>
+    <S.Wrapper>
+      <Heading size="medium" navigateToDashboard={backToHomePage}>
+        Voltar
+      </Heading>
 
-      <S.CustomDiv>
-        <S.Content>
-          <Form ref={formRef} initialData={initialData} onSubmit={handleSubmit}>
-            <Input name="name" icon={FiUser} placeholder="Nome" />
+      <S.CustomMainContainer>
+        <S.HeadingContainer>
+          <Heading lineBottom> Meu Perfil </Heading>
+        </S.HeadingContainer>
+        <S.CustomDiv>
+          <S.Content>
+            <Form ref={formRef} initialData={initialData} onSubmit={handleSubmit}>
+              <Input name="name" icon={FiUser} placeholder="Nome" />
 
-            <Input name="email" icon={FiMail} placeholder="E-mail" />
+              <Input name="email" icon={FiMail} placeholder="E-mail" />
 
-            <Input
-              containerStyle={{ marginTop: 24 }}
-              name="old_password"
-              icon={FiLock}
-              type="password"
-              placeholder="Senha atual"
-            />
+              <Input
+                containerStyle={{ marginTop: 24 }}
+                name="old_password"
+                icon={FiLock}
+                type="password"
+                placeholder="Senha atual"
+              />
 
-            <Input
-              name="password"
-              icon={FiLock}
-              type="password"
-              placeholder="Nova senha"
-            />
+              <Input
+                name="password"
+                icon={FiLock}
+                type="password"
+                placeholder="Nova senha"
+              />
 
-            <Input
-              name="password_confirmation"
-              icon={FiLock}
-              type="password"
-              placeholder="Confirmar senha"
-            />
+              <Input
+                name="password_confirmation"
+                icon={FiLock}
+                type="password"
+                placeholder="Confirmar senha"
+              />
 
-            {loading ? (
-              <Loading />
-            ) : (
-              <Button type="submit" disabled={loading}>
-                Confirmar mudanças
-              </Button>
-            )}
-          </Form>
-        </S.Content>
-      </S.CustomDiv>
-    </S.CustomMainContainer>
+              {loading ? (
+                <Loading />
+              ) : (
+                <Button type="submit" disabled={loading}>
+                  Confirmar mudanças
+                </Button>
+              )}
+            </Form>
+          </S.Content>
+        </S.CustomDiv>
+      </S.CustomMainContainer>
+    </S.Wrapper>
   );
 };

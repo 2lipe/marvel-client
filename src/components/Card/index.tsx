@@ -91,11 +91,11 @@ export const Card = ({
         </S.FavButton>
 
         {actionNavigate && (
-          <>
+          <S.IconButonContainer>
             {type === 'Character' && (
               <Tooltip title="Comics">
                 <IconButton aria-label="Comics" onClick={() => actionNavigate!(id, type)}>
-                  <FiBook color="white" />
+                  <FiBook size={20} color="black" />
                 </IconButton>
               </Tooltip>
             )}
@@ -105,11 +105,11 @@ export const Card = ({
                 <IconButton
                   aria-label="Characters"
                   onClick={() => actionNavigate!(id, type)}>
-                  <FiUser color="white" />
+                  <FiUser size={20} color="black" />
                 </IconButton>
               </Tooltip>
             )}
-          </>
+          </S.IconButonContainer>
         )}
 
         <S.ButtonWrapper>

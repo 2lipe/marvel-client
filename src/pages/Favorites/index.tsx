@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { useSnackbar } from 'notistack';
 import { useHistory } from 'react-router-dom';
 
@@ -14,6 +14,7 @@ import { CardComicFavorite } from '../../models/dtos/comic/FavoriteComic';
 import { CHARACTER_MESSAGES, COMIC_MESSAGES } from '../../shared/helpers/message-helper';
 import { RequestAddComicFavorite } from '../../models/dtos/comic/AddFavoriteComic';
 import { CardCharacterFavorite } from '../../models/dtos/character/FavoriteCharacter';
+import { Heading } from '../../components/Heading';
 
 export const Favorites = () => {
   const [comicsFavorites, setComicsFavorites] = useState<CardProps[]>([]);
@@ -36,10 +37,6 @@ export const Favorites = () => {
 
   const history = useHistory();
   const { enqueueSnackbar } = useSnackbar();
-
-  const navigateToDashboard = () => {
-    history.push(USER_PATH.Dashboard);
-  };
 
   const actionGetComicsFavorites = async () => {
     try {
@@ -176,8 +173,14 @@ export const Favorites = () => {
     }
   };
 
+  const backToHomePage = useCallback(() => {
+    history.push(USER_PATH.Dashboard);
+  }, [history]);
+
   return (
     <S.Wrapper>
+      <Heading navigateToDashboard={backToHomePage}>Voltar</Heading>
+
       <Showcase title="Comics Favoritas" items={comicsFavorites} />
 
       <Showcase title="Personagens Favoritos" items={charactersFavorites} />

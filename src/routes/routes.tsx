@@ -6,6 +6,7 @@ import { CustomRoute } from '../components/CustomRoute';
 import { AUTHENTICATION_PATH, SignInRoute, SignUpRoute } from './auth.routes';
 import { CHARACTERS_PATH, CharacterRoutes } from './character.routes';
 import { COMICS_PATH, ComicRoutes } from './comic.routes';
+import { DETAIL_ROUTES, DetailRoutes } from './details.routes';
 import { FAVORITES_PATH, FavoritesRoutes } from './favorites.routes';
 import { USER_PATH, UserRoutes, UpdateUserRoutes } from './user.routes';
 
@@ -67,6 +68,22 @@ const Routes = () => {
           headerActive
           component={FavoritesRoutes}
           isPrivate
+        />
+
+        <CustomRoute
+          exact
+          path={DETAIL_ROUTES.ComicCharacter}
+          component={DetailRoutes}
+          isPrivate
+          headerActive
+        />
+
+        <CustomRoute
+          exact
+          path={DETAIL_ROUTES.CharacterComic}
+          component={DetailRoutes}
+          isPrivate
+          headerActive
         />
 
         <CustomRoute path="*" isPrivate={false} component={ReturnLogin} />

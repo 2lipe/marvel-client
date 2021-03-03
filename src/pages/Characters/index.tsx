@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import { useSnackbar } from 'notistack';
 import { useHistory } from 'react-router-dom';
 
@@ -11,6 +11,8 @@ import { useCharactersService } from '../../services/characters.service';
 import { useUserService } from '../../services/user.service';
 import { CHARACTER_MESSAGES } from '../../shared/helpers/message-helper';
 import highlightItem from './highlight';
+import { Heading } from '../../components/Heading';
+import { USER_PATH } from '../../routes/user.routes';
 
 import * as S from './styles';
 
@@ -22,6 +24,18 @@ export const Characters = () => {
   const { getCharacter } = useCharactersService();
 
   const history = useHistory();
+
+  const navigateToRoute = (id: string, type: typeCard) => {
+    if (type === 'Character') {
+      const urlCharacter = `/character/${id}/comics`;
+
+      history.push(urlCharacter);
+    } else {
+      const urlComic = `/comic/${id}/characters`;
+
+      history.push(urlComic);
+    }
+  };
 
   const actionSearch = async (value: string) => {
     try {
@@ -48,7 +62,7 @@ export const Characters = () => {
 
       characterTrated = cardTrated;
       characterTrated.actionAddFavorite = actionAddCharacterFavorite;
-      characterTrated.actionRemoveFavorite = actionRemoveComicFavorite;
+      characterTrated.actionRemoveFavorite = actionRemoveCharacterFavorite;
       characterTrated.actionNavigate = navigateToRoute;
 
       arrayCharacterTrated.push(characterTrated);
@@ -76,7 +90,7 @@ export const Characters = () => {
     }
   };
 
-  const actionRemoveComicFavorite = async (id: string) => {
+  const actionRemoveCharacterFavorite = async (id: string) => {
     try {
       const response = await removeCharacterFavorite(id);
 
@@ -96,20 +110,14 @@ export const Characters = () => {
     }
   };
 
-  const navigateToRoute = (id: string, type: typeCard) => {
-    if (type === 'Character') {
-      const urlCharacter = `/character/${id}/comics`;
-
-      history.push(urlCharacter);
-    } else {
-      const urlComic = `/comic/${id}/characters`;
-
-      history.push(urlComic);
-    }
-  };
+  const backToHomePage = useCallback(() => {
+    history.push(USER_PATH.Dashboard);
+  }, [history]);
 
   return (
     <S.Wrapper>
+      <Heading navigateToDashboard={backToHomePage}>Voltar</Heading>
+
       <S.InpuContainer>
         <InputSearch
           searchAction={actionSearch}
