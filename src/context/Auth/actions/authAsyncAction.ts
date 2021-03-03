@@ -1,14 +1,18 @@
 import { SignInRequestDto } from '../../../models/dtos/session/SignInRequestDto';
+import { SignInResponseDto } from '../../../models/dtos/session/SignInResponseDto';
+import { IRequestUpdateProfile } from '../../../models/Interfaces/IRequestUpdateProfile';
 import { useAuthService } from '../../../services/auth.service';
 import {
   removeUserLocalStorage,
   saveUserLocalStorage,
 } from '../../../shared/helpers/local-storage-helper';
 import { useAuthenticationContext } from '../reducers/authContext';
+import { useUserService } from '../../../services/user.service';
 
 export function AuthAsyncActions() {
-  const { dispatch, actions } = useAuthenticationContext();
+  const { dispatch, actions, state } = useAuthenticationContext();
   const { createSession } = useAuthService();
+  const { updateUser } = useUserService();
 
   const signInRequestAction = async (data: SignInRequestDto) => {
     try {
@@ -32,5 +36,28 @@ export function AuthAsyncActions() {
     dispatch({ type: actions.LOGOUT });
   };
 
-  return { signInRequestAction, signOutRequestAction };
+  const updateRequestAction = async (data: IRequestUpdateProfile) => {
+    try {
+      const { token, id } = state.user;
+      const response = await updateUser(data);
+
+      const newUser: SignInResponseDto = {
+        email: data.email,
+        id,
+        token,
+        userName: data.name,
+      };
+      removeUserLocalStorage();
+      saveUserLocalStorage(newUser);
+
+      dispatch({ type: actions.UPDATE_SUCCESS, payload: newUser });
+
+      return response;
+    } catch (error) {
+      dispatch({ type: actions.UPDATE_FAILURE });
+      throw error;
+    }
+  };
+
+  return { signInRequestAction, signOutRequestAction, updateRequestAction };
 }

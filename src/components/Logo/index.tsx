@@ -5,10 +5,11 @@ import * as S from './styles';
 export type LogoProps = {
   color?: 'white' | 'red';
   size?: 'normal' | 'large';
+  backHome?: () => void;
 };
 
-export const Logo = ({ color = 'red', size = 'normal' }: LogoProps) => (
-  <S.Wrapper color={color} size={size}>
+export const Logo = ({ color = 'red', size = 'normal', backHome }: LogoProps) => (
+  <S.Wrapper color={color} size={size} onClick={backHome}>
     <svg
       width="102"
       height="40"

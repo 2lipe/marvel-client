@@ -10,11 +10,7 @@ export default {
   args: {
     title: 'Marvel Vilains',
     description: 'Marvel',
-    img: Images.marvelVilains,
-  },
-
-  argTypes: {
-    onFav: { action: 'clicked' },
+    imgUrl: Images.marvelVilains,
   },
 
   parameters: {

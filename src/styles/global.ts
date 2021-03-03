@@ -12,9 +12,9 @@ export default createGlobalStyle`
   }
 
   html, body, #root {
-    width: 100%;
-    height: 100%;
     font-size: 62.5%;
+    height: 100%;
+    width: 100%;
   }
 
   ${({ theme }) => css`
