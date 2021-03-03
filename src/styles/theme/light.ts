@@ -6,6 +6,7 @@ export default {
 
   border: {
     radius: '0.4rem',
+    radius10: '1.0rem',
   },
 
   font: {
@@ -27,16 +28,32 @@ export default {
   },
 
   colors: {
-    primary: '#F231A5',
-    secondary: '#3CD3C1',
+    primary: '#c53030',
+    secondary: '#030517',
+
     mainBg: '#06092B',
     lightBg: '#F2F2F2',
+
     white: '#FAFAFA',
+    smooth: '#f4ede8',
     black: '#030517',
-    lightGray: '#EAEAEA',
     gray: '#8F8F8F',
-    darkGray: '#2E2F42',
-    red: '#FF6347',
+
+    gray1: '#EAEAEA',
+    gray2: '#999591',
+    gray3: '#666360',
+    gray4: '#3E3B47',
+    gray5: '#2E2F42',
+    gray6: '#312E38',
+    gray7: '#232129',
+
+    orange: '#ff9000',
+    redlight: '#FF6347',
+    red: '#c53030',
+
+    danger: '#EB5757',
+    alert: '#F2C94C',
+    default: '#F2F2F2',
   },
 
   spacings: {
