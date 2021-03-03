@@ -1,7 +1,6 @@
 import React from 'react';
 import BannerSlider from '../../components/BannerSlider';
 import { Heading } from '../../components/Heading';
-import { useAuthenticationContext } from '../../context/Auth/reducers/authContext';
 
 import items from './items';
 

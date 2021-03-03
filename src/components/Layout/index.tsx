@@ -29,6 +29,10 @@ export const Layout = ({ children, headerActive }: LayoutProps) => {
 
   const handleModalAction = () => setModal(!modal);
 
+  const navigateToUpdateProfile = useCallback(() => {
+    history.push(USER_PATH.Profile);
+  }, [history]);
+
   const backToHomePage = useCallback(() => {
     history.push(USER_PATH.Dashboard);
   }, [history]);
@@ -50,7 +54,7 @@ export const Layout = ({ children, headerActive }: LayoutProps) => {
           </div>
 
           <div>
-            <IconButton onClick={handleModalAction}>
+            <IconButton onClick={navigateToUpdateProfile}>
               <FaUserCircle size={24} fontSize="bold" />
             </IconButton>
 

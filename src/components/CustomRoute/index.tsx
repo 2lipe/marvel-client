@@ -19,8 +19,6 @@ export const CustomRoute = ({
 }: CustomRouteProps) => {
   const { state } = useAuthenticationContext();
 
-  console.log(state.user.token);
-
   const authenticated = state.user.token;
   const openRoute = !isPrivate;
 

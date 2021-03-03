@@ -13,11 +13,12 @@ import { FiAlertCircle } from 'react-icons/fi';
 import * as S from './styles';
 
 export type InputProps = {
+  containerStyle?: object;
   name: string;
   icon?: ComponentType<IconBaseProps>;
 } & InputHTMLAttributes<HTMLInputElement>;
 
-export const Input = ({ name, icon: Icon, ...rest }: InputProps) => {
+export const Input = ({ name, icon: Icon, containerStyle = {}, ...rest }: InputProps) => {
   const [isFocused, setIsFocused] = useState(false);
   const [isFilled, setIsFilled] = useState(false);
 
@@ -48,7 +49,11 @@ export const Input = ({ name, icon: Icon, ...rest }: InputProps) => {
   }, [fieldName, registerField]);
 
   return (
-    <S.Wrapper isFocused={isFocused} isFilled={isFilled} isErrored={!!error}>
+    <S.Wrapper
+      isFocused={isFocused}
+      style={containerStyle}
+      isFilled={isFilled}
+      isErrored={!!error}>
       {Icon && <Icon />}
       <input
         onFocus={handleInputFocus}

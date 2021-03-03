@@ -42,6 +42,7 @@ export const Wrapper = styled.button<WrapperProps>`
     text-decoration: none;
     padding: ${theme.spacings.xxsmall};
     transition: ${theme.transition.default};
+    margin-top: ${theme.spacings.xxsmall};
 
     background: ${theme.colors.red};
 

@@ -1,4 +1,5 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
+import { IoMdArrowBack } from 'react-icons/io';
 import styled, { css, DefaultTheme } from 'styled-components';
 import media from 'styled-media-query';
 
@@ -47,10 +48,22 @@ export const wrapperModifiers = {
 
 export const Wrapper = styled.h2<HeadingProps>`
   ${({ theme, color, lineLeft, lineBottom, lineColor, size }) => css`
+    display: flex;
+    flex-direction: row;
     color: ${theme.colors[color!]};
 
     ${lineLeft && wrapperModifiers.lineLeft(theme, lineColor!)}
     ${lineBottom && wrapperModifiers.lineBottom(theme, lineColor!)}
-    ${!!size && wrapperModifiers[size](theme)}
+    ${!!size && wrapperModifiers[size](theme)};
   `}
+`;
+
+export const CustomArrowBackIcon = styled(IoMdArrowBack)`
+  ${({ theme }) => css`
+    font-size: ${theme.spacings.small};
+  `}
+`;
+
+export const CustomContainer = styled.div`
+  margin: 1em;
 `;

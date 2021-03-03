@@ -8,6 +8,9 @@ export const AUTH_MESSAGES = {
   createAccountFail: 'Ocorreu um erro ao realizar o cadastro!',
 
   loginFail: 'Ocorreu um erro ao realizar o login',
+
+  updateSuccess: 'Cadastro atualizado com sucesso',
+  updateFail: 'Falha ao atualizar cadastro.',
 };
 
 export const CONTEXT_MESSAGES = {
@@ -29,5 +32,11 @@ export const COMIC_MESSAGES = {
 };
 
 export const CHARACTER_MESSAGES = {
-  serachFail: 'Falha ao buscar personagens.',
+  searchFail: 'Falha ao buscar personagens.',
+
+  addFavorite: 'Personagem adicionado como favorito.',
+  failFavorite: 'Falha ao favoritar personagem.',
+
+  removeSucess: 'Personagem removido dos favoritos.',
+  removeFail: 'Falha ao remover personagem dos favoritos.',
 };

@@ -18,8 +18,6 @@ import { InputSearch } from '../../components/Search';
 
 export const Comics = () => {
   const [resultMarvelApi, setResultMavelApi] = useState<CardProps[]>([]);
-  const [loading, setLoading] = useState<boolean>(false);
-  const [firstSearchPerformed, setFirstSearchPerformed] = useState<boolean>(false);
 
   const { getComics } = useComicsService();
   const { enqueueSnackbar } = useSnackbar();
@@ -41,16 +39,9 @@ export const Comics = () => {
 
   const actionSearch = async (value: string) => {
     try {
-      setFirstSearchPerformed(true);
-      setLoading(true);
-
       await getComic(value);
-
-      setLoading(false);
     } catch (error) {
-      setLoading(false);
-
-      enqueueSnackbar(CHARACTER_MESSAGES.serachFail, { variant: 'error' });
+      enqueueSnackbar(CHARACTER_MESSAGES.searchFail, { variant: 'error' });
     }
   };
 
@@ -122,7 +113,9 @@ export const Comics = () => {
 
   return (
     <S.Wrapper>
-      <InputSearch searchAction={actionSearch} placeholder="Uma comic" type="char" />
+      <S.InpuContainer>
+        <InputSearch searchAction={actionSearch} placeholder="uma comic" type="char" />
+      </S.InpuContainer>
 
       <Showcase
         title="Marvel Comics"

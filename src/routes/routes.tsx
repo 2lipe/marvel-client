@@ -6,7 +6,7 @@ import { CustomRoute } from '../components/CustomRoute';
 import { AUTHENTICATION_PATH, SignInRoute, SignUpRoute } from './auth.routes';
 import { CHARACTERS_PATH, CharacterRoutes } from './character.routes';
 import { COMICS_PATH, ComicRoutes } from './comic.routes';
-import { USER_PATH, UserRoutes } from './user.routes';
+import { USER_PATH, UserRoutes, UpdateUserRoutes } from './user.routes';
 
 const Routes = () => {
   const ReturnLogin = () => <Redirect to={USER_PATH.Dashboard} />;
@@ -50,6 +50,14 @@ const Routes = () => {
           isPrivate
           headerActive
           component={CharacterRoutes}
+        />
+
+        <CustomRoute
+          exact
+          path={USER_PATH.Profile}
+          headerActive
+          component={UpdateUserRoutes}
+          isPrivate
         />
 
         <CustomRoute path="*" isPrivate={false} component={ReturnLogin} />

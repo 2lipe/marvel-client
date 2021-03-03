@@ -52,7 +52,6 @@ export const SignIn = () => {
           reset();
         }
       } catch (err) {
-        console.log(err);
         if (err instanceof ValidationError) {
           const errors = getValidationErrors(err);
 

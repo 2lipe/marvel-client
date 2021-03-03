@@ -13,6 +13,8 @@ import {
   IRequestAddCharacterFavorite,
   IResponseAddCharacterFavorite,
 } from '../models/dtos/character/AddFavoriteCharacter';
+import { UpdateRequestDto } from '../models/dtos/user/UpdateRequestDto';
+import { SignInResponseDto } from '../models/dtos/session/SignInResponseDto';
 
 export const useUserService = () => {
   const createAccount = async ({ name, email, password }: SignUpRequestDto) => {
@@ -32,6 +34,23 @@ export const useUserService = () => {
     } catch (err) {
       throw new Error(err);
     }
+  };
+
+  const updateUser = async (data: UpdateRequestDto) => {
+    const user = getUserLocalStorage();
+
+    const userId = user?.id;
+
+    const body: UpdateRequestDto = {
+      ...data,
+      id: userId,
+    };
+
+    const response = await axiosPostApi<IDataResult<SignInResponseDto>>(
+      'user/update',
+      body,
+    );
+    return response;
   };
 
   const getComicsFavorites = async () => {
@@ -144,6 +163,7 @@ export const useUserService = () => {
 
   return {
     createAccount,
+    updateUser,
     getComicsFavorites,
     getCharactersFavorites,
     addComicFavorite,
