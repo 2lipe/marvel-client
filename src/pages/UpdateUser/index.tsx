@@ -87,9 +87,13 @@ export const UpdateUser = () => {
 
   return (
     <S.CustomMainContainer>
-      <Heading navigateToDashboard={backToHomePage}>Meu perfil</Heading>
-
+      <S.HeadingContainer>
+        <Heading lineBottom> Meu Perfil </Heading>
+      </S.HeadingContainer>
       <S.CustomDiv>
+        <Heading size="medium" navigateToDashboard={backToHomePage}>
+          Voltar
+        </Heading>
         <S.Content>
           <Form ref={formRef} initialData={initialData} onSubmit={handleSubmit}>
             <Input name="name" icon={FiUser} placeholder="Nome" />

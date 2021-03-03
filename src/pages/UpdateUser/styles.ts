@@ -1,5 +1,7 @@
+import styled, { css } from 'styled-components';
 import { shade } from 'polished';
-import styled from 'styled-components';
+
+import { Media } from '../../shared/helpers/media-helper';
 
 export const CustomMainContainer = styled.div`
   display: flex;
@@ -9,67 +11,72 @@ export const CustomMainContainer = styled.div`
   align-items: center;
 `;
 
-export const DivTitle = styled.div`
-  display: flex;
-  flex: 1;
-  justify-content: center;
-  > h4 {
-    font-weight: bold;
-    color: #f4ede8;
-  }
+export const HeadingContainer = styled.div`
+  margin-top: 4rem;
+  margin-right: 3rem;
 `;
 
 export const CustomDiv = styled.div`
-  width: 100%;
-  padding: 36px 15%;
-  display: flex;
-  flex-direction: column;
+  ${({ theme }) => css`
+    width: 100%;
+    padding: ${theme.spacings.xlarge} 15%;
+    display: flex;
+    flex-direction: column;
 
-  @media (max-width: 600px) {
-    padding: 36px 5%;
-  }
+    @media ${Media.maxWidth.ms} {
+      padding: ${theme.spacings.xlarge} 5%;
+    }
 
-  & .MuiRadio-colorPrimary.Mui-checked {
-    color: blue;
-  }
+    & .MuiRadio-colorPrimary.Mui-checked {
+      color: ${theme.colors.red};
+    }
+  `}
 `;
 
 export const Content = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  margin: 8px auto 0;
-  width: 100%;
-  max-width: 700px;
-
-  @media (max-width: 600px) {
-    padding: 36px 5%;
-  }
-
-  form {
-    margin: 80px 0;
-    width: 340px;
-    text-align: center;
+  ${({ theme }) => css`
     display: flex;
     flex-direction: column;
-    h1 {
-      margin-bottom: 24px;
-      font-size: 20px;
-      text-align: left;
+    align-items: center;
+    justify-content: center;
+
+    margin: ${theme.spacings.xxsmall} auto 0;
+    width: 100%;
+    max-width: 70rem;
+
+    @media ${Media.maxWidth.ms} {
+      padding: ${theme.spacings.xlarge} 5%;
     }
-    a {
-      color: #f4ede8;
-      display: block;
-      margin-top: 24px;
-      text-decoration: none;
-      transition: color 0.2s;
-      &:hover {
-        color: ${shade(0.2, '#f4ede8')};
+
+    form {
+      margin: ${theme.spacings.xxxlarge} 0;
+      width: 38rem;
+
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+
+      h1 {
+        margin-bottom: ${theme.spacings.small};
+        font-size: ${theme.font.sizes.xlarge};
+        text-align: left;
+      }
+
+      a {
+        color: ${theme.colors.white};
+        display: block;
+        margin-top: ${theme.spacings.small};
+        text-decoration: none;
+        transition: color ${theme.transition.default};
+
+        &:hover {
+          color: ${shade(0.2, theme.colors.smooth)};
+        }
+      }
+
+      input[name='old_password'] {
+        margin-top: ${theme.spacings.small};
       }
     }
-    input[name='old_password'] {
-      margin-top: 24px;
-    }
-  }
+  `}
 `;

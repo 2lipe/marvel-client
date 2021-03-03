@@ -23,6 +23,18 @@ export const Characters = () => {
 
   const history = useHistory();
 
+  const navigateToRoute = (id: string, type: typeCard) => {
+    if (type === 'Character') {
+      const urlCharacter = `/character/${id}/comics`;
+
+      history.push(urlCharacter);
+    } else {
+      const urlComic = `/comic/${id}/characters`;
+
+      history.push(urlComic);
+    }
+  };
+
   const actionSearch = async (value: string) => {
     try {
       await getCardProps(value);
@@ -48,7 +60,7 @@ export const Characters = () => {
 
       characterTrated = cardTrated;
       characterTrated.actionAddFavorite = actionAddCharacterFavorite;
-      characterTrated.actionRemoveFavorite = actionRemoveComicFavorite;
+      characterTrated.actionRemoveFavorite = actionRemoveCharacterFavorite;
       characterTrated.actionNavigate = navigateToRoute;
 
       arrayCharacterTrated.push(characterTrated);
@@ -76,7 +88,7 @@ export const Characters = () => {
     }
   };
 
-  const actionRemoveComicFavorite = async (id: string) => {
+  const actionRemoveCharacterFavorite = async (id: string) => {
     try {
       const response = await removeCharacterFavorite(id);
 
@@ -93,18 +105,6 @@ export const Characters = () => {
     } catch (error) {
       enqueueSnackbar(CHARACTER_MESSAGES.removeFail, { variant: 'error' });
       return true;
-    }
-  };
-
-  const navigateToRoute = (id: string, type: typeCard) => {
-    if (type === 'Character') {
-      const urlCharacter = `/character/${id}/comics`;
-
-      history.push(urlCharacter);
-    } else {
-      const urlComic = `/comic/${id}/characters`;
-
-      history.push(urlComic);
     }
   };
 

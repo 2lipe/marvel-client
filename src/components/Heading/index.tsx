@@ -31,8 +31,8 @@ export const Heading = ({
     lineColor={lineColor}
     size={size}>
     {navigateToDashboard && (
-      <IconButton onClick={navigateToDashboard}>
-        <S.CustomArrowBackIcon />
+      <IconButton>
+        <S.CustomArrowBackIcon onClick={navigateToDashboard} />
       </IconButton>
     )}
 

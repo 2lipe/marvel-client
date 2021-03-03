@@ -65,5 +65,8 @@ export const CustomArrowBackIcon = styled(IoMdArrowBack)`
 `;
 
 export const CustomContainer = styled.div`
-  margin: 1em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 2rem;
 `;
