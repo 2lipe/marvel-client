@@ -11,10 +11,10 @@ import { useCharactersService } from '../../services/characters.service';
 import { useUserService } from '../../services/user.service';
 import { CHARACTER_MESSAGES } from '../../shared/helpers/message-helper';
 import highlightItem from './highlight';
+import { Heading } from '../../components/Heading';
+import { USER_PATH } from '../../routes/user.routes';
 
 import * as S from './styles';
-import { USER_PATH } from '../../routes/user.routes';
-import { Heading } from '../../components/Heading';
 
 export const Characters = () => {
   const [resultMarvelApi, setResultMavelApi] = useState<CardProps[]>([]);

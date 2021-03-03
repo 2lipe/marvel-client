@@ -24,5 +24,23 @@ export const useCharactersService = () => {
     }
   };
 
-  return { getCharacter };
+  const getComicsOfCharacter = async (characterId: String) => {
+    try {
+      const user = getUserLocalStorage();
+
+      const body = {
+        userId: user?.id,
+      };
+
+      const url = `character/${characterId}/comics`;
+
+      const response = await axiosPostApi<IDataResult<ResponseApiMarvelDto>>(url, body);
+
+      return response;
+    } catch (err) {
+      throw new Error(err);
+    }
+  };
+
+  return { getCharacter, getComicsOfCharacter };
 };
