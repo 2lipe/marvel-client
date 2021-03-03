@@ -1,46 +1,78 @@
-# Getting Started with Create React App
+<h1 align="center">
+    <img alt="Stone" src="https://upload.wikimedia.org/wikipedia/commons/c/c9/Stone_pagamentos.png" width="200px" />
+</h1>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<h3 align="center">
+  Stone Marvel
+</h3>
 
-## Available Scripts
+<p align="center">Este desafio se propós a realizar a integração de serviços do frontend com o backend, realizando a chamada de api, consumindo serviços da API da Marvel.</p>
 
-In the project directory, you can run:
+<p align="center">
+  <a href="#computer-frontend">Frontend</a>
+</p>
 
-### `yarn start`
+# :coffee: Demonstrações
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+<div>
+  <p align="center">
+    <img src="./.github/assets/signIn.png" height="400">
+    <img src="./.github/assets/dashboard.png" height="400">
+    <img src="./.github/assets/comics.png" height="400">
+    <img src="./.github/assets/favorites.png" height="400">
+    <img src="./.github/assets/modal.png" height="400">
+  </p>
+</div>
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### Pré-requisitos
 
-### `yarn test`
+Antes de começar, você vai precisar ter instalado em sua máquina as seguintes ferramentas:
+[Git](https://git-scm.com), [Node.js](https://nodejs.org/en/).
+Além disto é bom ter um editor para trabalhar com o código como [VSCode](https://code.visualstudio.com/)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+# Informações adicionais
 
-### `yarn build`
+Neste projeto decidir por utilizar o React com TypeScript, pois para mim o TypeScript torna o projeto mais legível por conta de sua tipagem assim evitando alguns erros que possam ocorrer com o JavaScript. <br/><br/>
+Foi utilizado também o styled-components como lib de estilo, para facilitar e organizar as folhas de estilo, e também para entregar maior poder de personalização, storybook para realizar a documentação de alguns componentes, e Jest para realizar alguns teste de render.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+# :computer: Frontend
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Após clonar o repositório, entre na pasta `challenge-stone-client` e instale todas as dependências utilizando o comando:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```bash
+# Digite o comando abaixo para instalar as dependências:
+yarn install
+```
 
-### `yarn eject`
+Depois, digite o comando abaixo para rodar a aplicação web:
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+```bash
+# Irá abrir em localhost:3000
+yarn start
+```
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+<br>
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### 🛠 Tecnologias
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+As seguintes ferramentas foram usadas na construção do projeto:
 
-## Learn More
+- [React](https://pt-br.reactjs.org/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Styled Components](https://styled-components.com/)
+- [Storybook](https://storybook.js.org/)
+- [Jest](https://jestjs.io/)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Autor
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+---
+
+<div align="center">
+<a href="https://2lipe.netlify.app/" target="_blank">
+ <img style="border-radius: 50%" src="https://avatars.githubusercontent.com/u/60102071?s=400&u=0ca749fcb9a2c7858c55c6f816cfb2e5c34f78a6&v=4" width="100px;" alt=""/>
+ <br />
+ <sub><b>Felipe Vieira</b></sub></a> <a href="https://2lipe.netlify.app/" target="_blank" title="Felipe Vieira"></a>
+
+Made by Felipe Vieira
+
+</div>

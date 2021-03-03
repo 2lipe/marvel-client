@@ -3,7 +3,7 @@ import { useHistory } from 'react-router-dom';
 import { ValidationError } from 'yup';
 import { useSnackbar } from 'notistack';
 import { FormHandles } from '@unform/core';
-import { FiArrowLeft, FiLock, FiUser } from 'react-icons/fi';
+import { FiArrowLeft, FiLock, FiMail, FiUser } from 'react-icons/fi';
 
 import { Input } from '../../components/Input';
 import { Images } from '../../shared/utils/images';
@@ -66,7 +66,7 @@ export const SignUp = () => {
 
         <Input name="name" type="text" icon={FiUser} placeholder="Nome" />
 
-        <Input name="email" type="email" icon={FiLock} placeholder="E-mail" />
+        <Input name="email" type="email" icon={FiMail} placeholder="E-mail" />
 
         <Input name="password" type="password" icon={FiLock} placeholder="Senha" />
 
