@@ -13,3 +13,21 @@ export const AUTH_MESSAGES = {
 export const CONTEXT_MESSAGES = {
   actionNotIdentified: 'Action not identified:',
 };
+
+export const SEARCH_MESSAGES = {
+  minValue: 'Digite no minimo 3 caracteres.',
+};
+
+export const COMIC_MESSAGES = {
+  searchFail: '',
+
+  addFavorite: 'Comic adicionada como favorita.',
+  failFavorite: 'Falha ao favoritar comic.',
+
+  removeSucess: 'Comic removida dos favoritos.',
+  removeFail: 'Falha ao remover comic dos favoritos.',
+};
+
+export const CHARACTER_MESSAGES = {
+  serachFail: 'Falha ao buscar personagens.',
+};
