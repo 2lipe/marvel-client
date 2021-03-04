@@ -1,8 +1,9 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
+import React, { useCallback, useState } from 'react';
 import { IconButton, Tooltip } from '@material-ui/core';
-import React, { useState } from 'react';
 import { FiBook, FiUser } from 'react-icons/fi';
 import { MdFavorite, MdFavoriteBorder } from 'react-icons/md';
+import LazyLoad from 'react-lazyload';
 import { InfoCard, typeCard } from '../../models/dtos/marvel/Card';
 import { Button } from '../Button';
 
@@ -35,7 +36,7 @@ export const Card = ({
 }: CardProps) => {
   const [favoritCard, setFavoriteCard] = useState<boolean>(isFavorite);
 
-  const handleAddFavoriteAction = async () => {
+  const handleAddFavoriteAction = useCallback(async () => {
     if (actionAddFavorite) {
       const info: InfoCard = {
         id,
@@ -48,25 +49,27 @@ export const Card = ({
 
       setFavoriteCard(response);
     }
-  };
+  }, [actionAddFavorite, id, imgUrl, linkDetail, title]);
 
-  const handleRemoveFavoriteAction = async () => {
+  const handleRemoveFavoriteAction = useCallback(async () => {
     if (actionRemoveFavorite) {
       const response = await actionRemoveFavorite(id);
 
       setFavoriteCard(response);
     }
-  };
+  }, [actionRemoveFavorite, id]);
 
-  const actionDetail = () => {
+  const actionDetail = useCallback(() => {
     window.location.href = linkDetail;
-  };
+  }, [linkDetail]);
 
   return (
     <S.Wrapper>
-      <S.ImageBox>
-        <img src={imgUrl} alt={title} />
-      </S.ImageBox>
+      <LazyLoad>
+        <S.ImageBox>
+          <img src={imgUrl} alt={title} />
+        </S.ImageBox>
+      </LazyLoad>
 
       <S.Content>
         <S.Info>

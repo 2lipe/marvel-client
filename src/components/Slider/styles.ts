@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Media } from '../../shared/helpers/media-helper';
 
 export const Wrapper = styled.section`
   .slick-slider {
@@ -52,6 +53,7 @@ export const Wrapper = styled.section`
 
     display: block;
   }
+
   .slick-track:before,
   .slick-track:after {
     display: table;
