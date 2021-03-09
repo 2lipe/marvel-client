@@ -6,6 +6,7 @@ import { FiLock, FiLogIn, FiMail } from 'react-icons/fi';
 
 import { ValidationError } from 'yup';
 import { Input } from '../../components/Input';
+import { Images } from '../../shared/utils/images';
 import { Button } from '../../components/Button';
 import { Logo } from '../../components/Logo';
 import { AUTHENTICATION_PATH } from '../../routes/auth.routes';
@@ -17,7 +18,6 @@ import { AuthAsyncActions } from '../../context/Auth/actions/authAsyncAction';
 import { Loading } from '../../components/Loading';
 
 import * as S from './styles';
-import { AuthWrapper } from '../../components/AuthWrapper';
 
 export const SignIn = () => {
   const formRef = useRef<FormHandles>(null);
@@ -75,7 +75,7 @@ export const SignIn = () => {
   );
 
   return (
-    <AuthWrapper>
+    <S.Wrapper src={Images.herosLoginImage} role="img" aria-label="Marvel heros">
       <S.LoginForm ref={formRef} onSubmit={handleSubmitFormLogin}>
         <S.LogoContainer>
           <Logo />
@@ -100,6 +100,6 @@ export const SignIn = () => {
           Criar conta
         </S.CreateAccountLink>
       </S.LoginForm>
-    </AuthWrapper>
+    </S.Wrapper>
   );
 };

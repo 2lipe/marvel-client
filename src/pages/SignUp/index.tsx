@@ -6,6 +6,7 @@ import { FormHandles } from '@unform/core';
 import { FiArrowLeft, FiLock, FiMail, FiUser } from 'react-icons/fi';
 
 import { Input } from '../../components/Input';
+import { Images } from '../../shared/utils/images';
 import { Button } from '../../components/Button';
 import { Logo } from '../../components/Logo';
 import { AUTHENTICATION_PATH } from '../../routes/auth.routes';
@@ -17,7 +18,6 @@ import { Loading } from '../../components/Loading';
 import { useUserService } from '../../services/user.service';
 
 import * as S from './styles';
-import { AuthWrapper } from '../../components/AuthWrapper';
 
 export const SignUp = () => {
   const formRef = useRef<FormHandles>(null);
@@ -64,7 +64,7 @@ export const SignUp = () => {
   );
 
   return (
-    <AuthWrapper>
+    <S.Wrapper src={Images.herosLoginImage} role="img" aria-label="Marvel heros">
       <S.SignUpForm ref={formRef} onSubmit={handleSubmitFormCreateAccount}>
         <S.LogoContainer>
           <Logo />
@@ -91,6 +91,6 @@ export const SignUp = () => {
           Voltar para logon
         </S.ReturnToLoginLink>
       </S.SignUpForm>
-    </AuthWrapper>
+    </S.Wrapper>
   );
 };

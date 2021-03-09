@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useCallback, useEffect, useState } from 'react';
+import React, { ChangeEvent, useEffect, useState } from 'react';
 import { IoMdClose, IoMdSearch } from 'react-icons/io';
 import { useSnackbar } from 'notistack';
 import { FormControl, Grid, IconButton, InputAdornment } from '@material-ui/core';
@@ -26,22 +26,13 @@ export const InputSearch = ({ searchAction, placeholder, type }: IInputSearch) =
     setValue('');
   };
 
-  const handleSearch = useCallback(async () => {
+  const handleSearch = async () => {
     if (value.length > 2) {
       await searchAction(value);
     } else if (value && value.length < 3) {
       enqueueSnackbar(SEARCH_MESSAGES.minValue, { variant: 'warning' });
     }
-  }, [enqueueSnackbar, searchAction, value]);
-
-  const handleSearchOnPressEnter = useCallback(
-    (event: KeyboardEvent) => {
-      if (event.key === 'Enter') {
-        handleSearch();
-      }
-    },
-    [handleSearch],
-  );
+  };
 
   useEffect(() => {
     handleSearch();
@@ -54,7 +45,6 @@ export const InputSearch = ({ searchAction, placeholder, type }: IInputSearch) =
         <FormControl fullWidth>
           <CustomInput
             fullWidth
-            onKeyPress={() => handleSearchOnPressEnter}
             placeholder={`Pesquise ${placeholder}`}
             variant="outlined"
             value={value}
