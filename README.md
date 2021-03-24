@@ -1,12 +1,8 @@
-<h1 align="center">
-    <img alt="Stone" src="https://upload.wikimedia.org/wikipedia/commons/c/c9/Stone_pagamentos.png" width="200px" />
-</h1>
-
 <h3 align="center">
-  Stone Marvel
+  Marvel Client
 </h3>
 
-<p align="center">Este desafio se propós a realizar a integração de serviços do frontend com o backend, realizando a chamada de api, consumindo serviços da API da Marvel.</p>
+<p align="center">Este projeto se propós a realizar a integração de serviços do frontend Marvel com o backend Marvel Api, realizando a chamadas, consumindo serviços da API da Marvel.</p>
 
 <p align="center">
   <a href="#computer-frontend">Frontend</a>
@@ -33,11 +29,11 @@ Além disto é bom ter um editor para trabalhar com o código como [VSCode](http
 # Informações adicionais
 
 Neste projeto decidir por utilizar o React com TypeScript, pois para mim o TypeScript torna o projeto mais legível por conta de sua tipagem assim evitando alguns erros que possam ocorrer com o JavaScript. <br/><br/>
-Foi utilizado também o styled-components como lib de estilo, para facilitar e organizar as folhas de estilo, e também para entregar maior poder de personalização, storybook para realizar a documentação de alguns componentes, e Jest para realizar alguns teste de render.
+Foi utilizado também o styled-components como lib de estilo, para facilitar e organizar as folhas de estilo, e também para entregar maior poder de personalização, com isso foi criado um Design System da aplicação, storybook para realizar a documentação de alguns componentes, e Jest para realizar alguns teste de render.
 
 # :computer: Frontend
 
-Após clonar o repositório, entre na pasta `challenge-stone-client` e instale todas as dependências utilizando o comando:
+Após clonar o repositório, entre na pasta `marvel-client` e instale todas as dependências utilizando o comando:
 
 ```bash
 # Digite o comando abaixo para instalar as dependências:
@@ -62,6 +58,7 @@ As seguintes ferramentas foram usadas na construção do projeto:
 - [Styled Components](https://styled-components.com/)
 - [Storybook](https://storybook.js.org/)
 - [Jest](https://jestjs.io/)
+- [ContextAPI](https://reactjs.org/docs/context.html)
 
 ### Autor
 
